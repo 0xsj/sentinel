@@ -1,0 +1,7 @@
+@layer composition {
+	.atelier-workbench-panel { display: grid; grid-template-rows: auto minmax(0, 1fr); min-block-size: 0; }
+	.atelier-workbench-panel__header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-block-size: var(--control-lg); padding-inline: var(--space-5); border-block-end: 1px solid var(--line); }
+	.atelier-workbench-panel__header h3 { overflow: hidden; color: var(--ink-subtle); font-size: var(--text-10); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-label); text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+	.atelier-workbench-panel__body { min-block-size: 0; padding: var(--space-4); }
+	.atelier-workbench-panel[data-scrollable] .atelier-workbench-panel__body { overflow: auto; }
+}

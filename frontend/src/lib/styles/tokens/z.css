@@ -1,0 +1,10 @@
+@layer token {
+	:root {
+		--z-base: 0;
+		--z-sticky: 10;
+		--z-dropdown: 100;
+		--z-popover: 200;
+		--z-overlay: 300;
+		--z-toast: 400;
+	}
+}

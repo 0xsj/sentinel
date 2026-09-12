@@ -1,0 +1,17 @@
+@layer token {
+	:root {
+		--motion-fast: 120ms;
+		--motion-normal: 180ms;
+		--motion-slow: 260ms;
+		--ease-standard: cubic-bezier(0.2, 0, 0, 1);
+		--ease-emphasized: cubic-bezier(0.2, 0, 0, 1.2);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:root {
+			--motion-fast: 1ms;
+			--motion-normal: 1ms;
+			--motion-slow: 1ms;
+		}
+	}
+}

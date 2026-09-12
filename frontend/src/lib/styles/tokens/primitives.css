@@ -1,0 +1,57 @@
+@layer token {
+	:root {
+		--neutral-0: #ffffff;
+		--neutral-25: #fafbfc;
+		--neutral-50: #f3f5f7;
+		--neutral-100: #e9edf1;
+		--neutral-200: #d9e0e7;
+		--neutral-300: #c1cbd5;
+		--neutral-400: #9ba8b5;
+		--neutral-500: #778594;
+		--neutral-600: #5d6a78;
+		--neutral-700: #45515f;
+		--neutral-800: #303b48;
+		--neutral-850: #27313d;
+		--neutral-900: #202934;
+		--neutral-925: #1b232d;
+		--neutral-950: #151c24;
+		--neutral-975: #10161d;
+		--neutral-1000: #0b1016;
+
+		--blue-100: #dbeafe;
+		--blue-300: #8bb8ff;
+		--blue-400: #6ea1ff;
+		--blue-500: #4f83f1;
+		--blue-600: #3b6fd8;
+		--blue-700: #315bb2;
+		--blue-800: #27498e;
+		--blue-tint-dark: rgb(110 161 255 / 0.14);
+		--blue-tint-light: rgb(39 73 142 / 0.1);
+		--blue-line-dark: rgb(110 161 255 / 0.36);
+		--blue-line-light: rgb(39 73 142 / 0.28);
+
+		--green-400: #55c58a;
+		--green-700: #26744e;
+		--green-tint-dark: rgb(85 197 138 / 0.14);
+		--green-tint-light: rgb(38 116 78 / 0.1);
+		--amber-400: #f3bd5d;
+		--amber-700: #9a681d;
+		--amber-tint-dark: rgb(243 189 93 / 0.15);
+		--amber-tint-light: rgb(154 104 29 / 0.1);
+		--red-400: #ff7d7d;
+		--red-700: #b43e43;
+		--red-tint-dark: rgb(255 125 125 / 0.14);
+		--red-tint-light: rgb(180 62 67 / 0.1);
+
+		--alpha-w-04: rgb(255 255 255 / 0.04);
+		--alpha-w-06: rgb(255 255 255 / 0.06);
+		--alpha-w-08: rgb(255 255 255 / 0.08);
+		--alpha-w-12: rgb(255 255 255 / 0.12);
+		--alpha-w-20: rgb(255 255 255 / 0.2);
+		--alpha-b-04: rgb(15 23 42 / 0.04);
+		--alpha-b-06: rgb(15 23 42 / 0.06);
+		--alpha-b-08: rgb(15 23 42 / 0.08);
+		--alpha-b-12: rgb(15 23 42 / 0.12);
+		--alpha-b-20: rgb(15 23 42 / 0.2);
+	}
+}

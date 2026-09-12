@@ -1,0 +1,20 @@
+@layer primitive {
+	.atelier-tooltip__trigger { display: inline-flex; align-items: center; justify-content: center; }
+	.atelier-tooltip__content { z-index: var(--z-popover); max-inline-size: 240px; padding: var(--space-3) var(--space-4); border: 1px solid var(--line-strong); border-radius: var(--radius-2); background: var(--surface-raised); box-shadow: var(--shadow-popover); color: var(--ink); font-size: var(--text-11); line-height: var(--leading-body); }
+	.atelier-tooltip__arrow { fill: var(--surface-raised); stroke: var(--line-strong); }
+	.atelier-popover__trigger, .atelier-dialog__trigger { display: inline-flex; align-items: center; justify-content: center; }
+	.atelier-popover__content { z-index: var(--z-popover); min-inline-size: 220px; max-inline-size: min(360px, calc(100vw - var(--space-8))); padding: var(--space-5); border: 1px solid var(--line-strong); border-radius: var(--radius-3); background: var(--surface-raised); box-shadow: var(--shadow-popover); color: var(--ink); }
+	.atelier-popover__arrow { fill: var(--surface-raised); stroke: var(--line-strong); }
+	.atelier-dialog__overlay { position: fixed; z-index: var(--z-overlay); inset: 0; background: var(--scrim); }
+	.atelier-dialog__content { position: fixed; z-index: calc(var(--z-overlay) + 1); inset-block-start: 50%; inset-inline-start: 50%; display: grid; gap: var(--space-7); inline-size: min(520px, calc(100vw - var(--space-8))); max-block-size: calc(100dvh - var(--space-8)); overflow: auto; padding: var(--space-8); border: 1px solid var(--line-strong); border-radius: var(--radius-3); background: var(--surface-panel); box-shadow: var(--shadow-popover); color: var(--ink); transform: translate(-50%, -50%); }
+	.atelier-dialog__content[data-size='sm'] { inline-size: min(380px, calc(100vw - var(--space-8))); }
+	.atelier-dialog__content[data-size='lg'] { inline-size: min(760px, calc(100vw - var(--space-8))); }
+	.atelier-dialog__header { display: flex; align-items: start; justify-content: space-between; gap: var(--space-6); }
+	.atelier-dialog__heading { display: grid; gap: var(--space-3); }
+	.atelier-dialog__title { font-size: var(--text-18); font-weight: var(--weight-semibold); line-height: var(--leading-tight); }
+	.atelier-dialog__description { color: var(--ink-muted); font-size: var(--text-12); line-height: var(--leading-body); }
+	.atelier-dialog__close { inline-size: var(--control-md); block-size: var(--control-md); display: grid; place-items: center; flex: 0 0 auto; border: 1px solid transparent; border-radius: var(--radius-2); background: transparent; color: var(--ink-muted); font-size: var(--text-18); line-height: 1; }
+	.atelier-dialog__close:hover { background: var(--surface-hover); color: var(--ink); }
+	.atelier-dialog__close:focus-visible { border-color: var(--focus-ring); outline: 2px solid var(--focus-ring); outline-offset: 1px; }
+	.atelier-dialog__body { display: grid; gap: var(--space-6); }
+}

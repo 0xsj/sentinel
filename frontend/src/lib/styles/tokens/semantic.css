@@ -1,0 +1,128 @@
+@layer token {
+	:root {
+		color-scheme: dark;
+
+		--surface-ground: var(--neutral-1000);
+		--surface-rail: var(--neutral-975);
+		--surface-sunk: var(--neutral-950);
+		--surface-panel: var(--neutral-925);
+		--surface-panel-2: var(--neutral-900);
+		--surface-raised: var(--neutral-850);
+		--surface-hover: var(--alpha-w-06);
+		--surface-hover-strong: var(--alpha-w-12);
+		--surface-selected: var(--blue-tint-dark);
+
+		--ink: var(--neutral-100);
+		--ink-muted: var(--neutral-400);
+		--ink-subtle: var(--neutral-500);
+		--ink-disabled: var(--neutral-600);
+
+		--line: var(--alpha-w-08);
+		--line-strong: var(--alpha-w-12);
+		--line-heavy: var(--alpha-w-20);
+
+		--accent: var(--blue-400);
+		--accent-hover: var(--blue-300);
+		--accent-dim: var(--blue-500);
+		--accent-tint: var(--blue-tint-dark);
+		--accent-line: var(--blue-line-dark);
+		--accent-fill: var(--blue-600);
+		--accent-fill-hover: var(--blue-500);
+		--accent-ink: #ffffff;
+
+		--success: var(--green-400);
+		--success-tint: var(--green-tint-dark);
+		--warning: var(--amber-400);
+		--warning-tint: var(--amber-tint-dark);
+		--danger: var(--red-400);
+		--danger-tint: var(--red-tint-dark);
+
+		--focus-ring: var(--accent);
+		--focus-ring-width: 2px;
+		--focus-ring-offset: 2px;
+
+		--scrim: rgb(0 0 0 / 0.66);
+		--shadow-panel: 0 12px 32px -18px rgb(0 0 0 / 0.7), 0 0 0 1px var(--line);
+		--shadow-popover: 0 18px 48px -18px rgb(0 0 0 / 0.8), 0 0 0 1px var(--line-strong);
+
+		--workbench-titlebar-height: 32px;
+		--workbench-activity-rail-width: 48px;
+		--workbench-sidebar-width: 240px;
+		--workbench-statusbar-height: 24px;
+		--workbench-splitter-hit-area: 8px;
+	}
+
+	@media (prefers-color-scheme: light) {
+		:root:not([data-theme='dark']) {
+			--surface-ground: var(--neutral-25);
+			--surface-rail: var(--neutral-50);
+			--surface-sunk: var(--neutral-50);
+			--surface-panel: var(--neutral-0);
+			--surface-panel-2: var(--neutral-50);
+			--surface-raised: var(--neutral-0);
+			--surface-hover: var(--alpha-b-06);
+			--surface-hover-strong: var(--alpha-b-12);
+			--surface-selected: var(--blue-tint-light);
+			--ink: var(--neutral-800);
+			--ink-muted: var(--neutral-600);
+			--ink-subtle: var(--neutral-500);
+			--ink-disabled: var(--neutral-400);
+			--line: var(--alpha-b-08);
+			--line-strong: var(--alpha-b-12);
+			--line-heavy: var(--alpha-b-20);
+			--accent: var(--blue-700);
+			--accent-hover: var(--blue-800);
+			--accent-dim: var(--blue-600);
+			--accent-tint: var(--blue-tint-light);
+			--accent-line: var(--blue-line-light);
+			--accent-fill: var(--blue-600);
+			--accent-fill-hover: var(--blue-700);
+			--success: var(--green-700);
+			--success-tint: var(--green-tint-light);
+			--warning: var(--amber-700);
+			--warning-tint: var(--amber-tint-light);
+			--danger: var(--red-700);
+			--danger-tint: var(--red-tint-light);
+			--scrim: rgb(15 23 42 / 0.32);
+			--shadow-panel: 0 12px 32px -18px rgb(15 23 42 / 0.2), 0 0 0 1px var(--line);
+			--shadow-popover: 0 18px 48px -18px rgb(15 23 42 / 0.22), 0 0 0 1px var(--line-strong);
+			color-scheme: light;
+		}
+	}
+
+	:root[data-theme='light'] {
+		--surface-ground: var(--neutral-25);
+		--surface-rail: var(--neutral-50);
+		--surface-sunk: var(--neutral-50);
+		--surface-panel: var(--neutral-0);
+		--surface-panel-2: var(--neutral-50);
+		--surface-raised: var(--neutral-0);
+		--surface-hover: var(--alpha-b-06);
+		--surface-hover-strong: var(--alpha-b-12);
+		--surface-selected: var(--blue-tint-light);
+		--ink: var(--neutral-800);
+		--ink-muted: var(--neutral-600);
+		--ink-subtle: var(--neutral-500);
+		--ink-disabled: var(--neutral-400);
+		--line: var(--alpha-b-08);
+		--line-strong: var(--alpha-b-12);
+		--line-heavy: var(--alpha-b-20);
+		--accent: var(--blue-700);
+		--accent-hover: var(--blue-800);
+		--accent-dim: var(--blue-600);
+		--accent-tint: var(--blue-tint-light);
+		--accent-line: var(--blue-line-light);
+		--accent-fill: var(--blue-600);
+		--accent-fill-hover: var(--blue-700);
+		--success: var(--green-700);
+		--success-tint: var(--green-tint-light);
+		--warning: var(--amber-700);
+		--warning-tint: var(--amber-tint-light);
+		--danger: var(--red-700);
+		--danger-tint: var(--red-tint-light);
+		--scrim: rgb(15 23 42 / 0.32);
+		--shadow-panel: 0 12px 32px -18px rgb(15 23 42 / 0.2), 0 0 0 1px var(--line);
+		--shadow-popover: 0 18px 48px -18px rgb(15 23 42 / 0.22), 0 0 0 1px var(--line-strong);
+		color-scheme: light;
+	}
+}

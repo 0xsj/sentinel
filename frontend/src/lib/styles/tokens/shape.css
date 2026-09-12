@@ -1,0 +1,32 @@
+@layer token {
+	:root {
+		--radius-1: 4px;
+		--radius-2: 6px;
+		--radius-3: 8px;
+		--radius-4: 10px;
+		--radius-pill: 999px;
+
+		--control-xs: 22px;
+		--control-sm: 26px;
+		--control-md: 30px;
+		--control-lg: 36px;
+	}
+
+	:root[data-density='compact'] {
+		--control-xs: 20px;
+		--control-sm: 23px;
+		--control-md: 26px;
+		--control-lg: 32px;
+		--workbench-titlebar-height: 28px;
+		--workbench-statusbar-height: 22px;
+	}
+
+	:root[data-density='comfortable'] {
+		--control-xs: 24px;
+		--control-sm: 28px;
+		--control-md: 34px;
+		--control-lg: 40px;
+		--workbench-titlebar-height: 34px;
+		--workbench-statusbar-height: 26px;
+	}
+}

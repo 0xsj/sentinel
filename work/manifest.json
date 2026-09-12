@@ -1,0 +1,398 @@
+{
+  "schema_version": 1,
+  "project": "atelier-wails",
+  "tasks": [
+    {
+      "id": "native-errors",
+      "state": "complete",
+      "depends_on": [],
+      "contract": "pkg/errors/CONTRACT.md",
+      "contract_revision": 2,
+      "task": "work/tasks/native-errors.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "pkg/errors/",
+        "work/handoffs/native-errors.md"
+      ],
+      "read_only_paths": [
+        "pkg/errors/CONTRACT.md"
+      ],
+      "checks": [
+        "go test -count=1 ./pkg/errors",
+        "go test -race -count=1 ./pkg/errors",
+        "go vet ./pkg/errors",
+        "gofmt -l pkg/errors"
+      ]
+    },
+    {
+      "id": "native-clock",
+      "state": "complete",
+      "depends_on": [],
+      "contract": "pkg/clock/CONTRACT.md",
+      "contract_revision": 1,
+      "task": "work/tasks/native-clock.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "pkg/clock/",
+        "work/handoffs/native-clock.md"
+      ],
+      "read_only_paths": [
+        "pkg/clock/CONTRACT.md"
+      ],
+      "checks": [
+        "go test -count=1 ./pkg/clock",
+        "go test -race -count=1 ./pkg/clock",
+        "go vet ./pkg/clock",
+        "gofmt -l pkg/clock"
+      ]
+    },
+    {
+      "id": "native-secret",
+      "state": "complete",
+      "depends_on": [],
+      "contract": "pkg/secret/CONTRACT.md",
+      "contract_revision": 1,
+      "task": "work/tasks/native-secret.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "pkg/secret/",
+        "work/handoffs/native-secret.md"
+      ],
+      "read_only_paths": [
+        "pkg/secret/CONTRACT.md"
+      ],
+      "checks": [
+        "go test -count=1 ./pkg/secret",
+        "go test -race -count=1 ./pkg/secret",
+        "go vet ./pkg/secret",
+        "gofmt -l pkg/secret"
+      ]
+    },
+    {
+      "id": "native-leaves-integrate",
+      "state": "complete",
+      "depends_on": [
+        "native-errors",
+        "native-clock",
+        "native-secret"
+      ],
+      "contract": null,
+      "contract_revision": null,
+      "task": "work/tasks/native-leaves-integrate.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "work/manifest.json",
+        "work/handoffs/native-leaves-integrate.md"
+      ],
+      "read_only_paths": [
+        "pkg/errors/CONTRACT.md",
+        "pkg/clock/CONTRACT.md",
+        "pkg/secret/CONTRACT.md"
+      ],
+      "checks": [
+        "go test -count=1 ./pkg/errors ./pkg/clock ./pkg/secret",
+        "go test -race -count=1 ./pkg/errors ./pkg/clock ./pkg/secret",
+        "go vet ./...",
+        "npm --prefix frontend run build",
+        "go build -o /tmp/atelier-wails-worker-check ."
+      ]
+    },
+    {
+      "id": "preferences-contract",
+      "state": "complete",
+      "depends_on": [],
+      "contract": "internal/preferences/CONTRACT.md",
+      "contract_revision": 1,
+      "task": "work/tasks/preferences-contract.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "internal/preferences/CONTRACT.md",
+        "work/handoffs/preferences-contract.md"
+      ],
+      "read_only_paths": [],
+      "checks": [
+        "python3 tools/work/verify_manifest.py"
+      ]
+    },
+    {
+      "id": "preferences-domain",
+      "state": "planned",
+      "depends_on": [
+        "preferences-contract",
+        "native-leaves-integrate"
+      ],
+      "contract": null,
+      "contract_revision": null,
+      "task": null,
+      "owner": null,
+      "allowed_paths": [],
+      "read_only_paths": [],
+      "checks": [],
+      "reason": "Specify preference values and pure transitions."
+    },
+    {
+      "id": "preferences-app",
+      "state": "planned",
+      "depends_on": [
+        "preferences-domain"
+      ],
+      "contract": null,
+      "contract_revision": null,
+      "task": null,
+      "owner": null,
+      "allowed_paths": [],
+      "read_only_paths": [],
+      "checks": [],
+      "reason": "Specify consumer ports and operation error mappings."
+    },
+    {
+      "id": "preferences-memory",
+      "state": "planned",
+      "depends_on": [
+        "preferences-app"
+      ],
+      "contract": null,
+      "contract_revision": null,
+      "task": null,
+      "owner": null,
+      "allowed_paths": [],
+      "read_only_paths": [],
+      "checks": [],
+      "reason": "Specify and implement real memory port behavior plus shared adapter scenarios."
+    },
+    {
+      "id": "desktop-wire-contract",
+      "state": "planned",
+      "depends_on": [
+        "preferences-app"
+      ],
+      "contract": null,
+      "contract_revision": null,
+      "task": null,
+      "owner": null,
+      "allowed_paths": [],
+      "read_only_paths": [],
+      "checks": [],
+      "reason": "Specify public DTO/error validation and commit uncertainty; coordinate frontend kernel."
+    },
+    {
+      "id": "preferences-native-slice",
+      "state": "planned",
+      "depends_on": [
+        "preferences-memory",
+        "desktop-wire-contract"
+      ],
+      "contract": null,
+      "contract_revision": null,
+      "task": null,
+      "owner": null,
+      "allowed_paths": [],
+      "read_only_paths": [],
+      "checks": [],
+      "reason": "Wire and verify the real Svelte/native/memory round trip."
+    },
+    {
+      "id": "preferences-persistence",
+      "state": "planned",
+      "depends_on": [
+        "preferences-native-slice"
+      ],
+      "contract": null,
+      "contract_revision": null,
+      "task": null,
+      "owner": null,
+      "allowed_paths": [],
+      "read_only_paths": [],
+      "checks": [],
+      "reason": "Select storage explicitly, then adapter/restart/corruption checks."
+    },
+    {
+      "id": "native-id",
+      "state": "complete",
+      "depends_on": [
+        "native-errors"
+      ],
+      "contract": "pkg/id/CONTRACT.md",
+      "contract_revision": 1,
+      "task": "work/tasks/native-id.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "pkg/id/",
+        "work/handoffs/native-id.md"
+      ],
+      "read_only_paths": [
+        "pkg/id/CONTRACT.md"
+      ],
+      "checks": [
+        "go test -count=1 -v ./pkg/id",
+        "go test -race -count=1 ./pkg/id",
+        "go vet ./...",
+        "gofmt -l pkg/id"
+      ]
+    },
+    {
+      "id": "native-config",
+      "state": "complete",
+      "depends_on": [
+        "native-errors",
+        "native-secret"
+      ],
+      "contract": "pkg/config/CONTRACT.md",
+      "contract_revision": 1,
+      "task": "work/tasks/native-config.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "pkg/config/",
+        "work/handoffs/native-config.md"
+      ],
+      "read_only_paths": [
+        "pkg/config/CONTRACT.md"
+      ],
+      "checks": [
+        "go test -count=1 -v ./pkg/config",
+        "go test -race -count=1 ./pkg/config",
+        "go vet ./...",
+        "gofmt -l pkg/config"
+      ]
+    },
+    {
+      "id": "native-logger",
+      "state": "complete",
+      "depends_on": [
+        "native-errors",
+        "native-clock",
+        "native-secret",
+        "native-provenance"
+      ],
+      "contract": "pkg/logger/CONTRACT.md",
+      "contract_revision": 1,
+      "task": "work/tasks/native-logger.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "pkg/logger/",
+        "work/handoffs/native-logger.md"
+      ],
+      "read_only_paths": [
+        "pkg/logger/CONTRACT.md"
+      ],
+      "checks": [
+        "go test -race -count=1 ./pkg/... ./root",
+        "go vet ./...",
+        "gofmt -l pkg/logger root"
+      ]
+    },
+    {
+      "id": "native-fileio",
+      "state": "planned",
+      "depends_on": [],
+      "contract": null,
+      "contract_revision": null,
+      "task": null,
+      "owner": null,
+      "allowed_paths": [],
+      "read_only_paths": [],
+      "checks": [],
+      "reason": "Specify the first filesystem operation and required atomicity/durability."
+    },
+    {
+      "id": "architecture-checks",
+      "state": "planned",
+      "depends_on": [],
+      "contract": null,
+      "contract_revision": null,
+      "task": null,
+      "owner": null,
+      "allowed_paths": [],
+      "read_only_paths": [],
+      "checks": [],
+      "reason": "Implement and test forbidden-import rules; metadata verification is not import enforcement."
+    },
+    {
+      "id": "native-provenance",
+      "state": "complete",
+      "depends_on": [
+        "native-errors",
+        "native-id",
+        "native-clock"
+      ],
+      "contract": "pkg/provenance/CONTRACT.md",
+      "contract_revision": 1,
+      "task": "work/tasks/native-provenance.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "pkg/provenance/",
+        "work/handoffs/native-provenance.md"
+      ],
+      "read_only_paths": [
+        "pkg/provenance/CONTRACT.md"
+      ],
+      "checks": [
+        "go test -race -count=1 -v ./pkg/...",
+        "go vet ./...",
+        "gofmt -l pkg/provenance"
+      ]
+    },
+    {
+      "id": "native-root-bootstrap",
+      "state": "complete",
+      "depends_on": [
+        "native-id",
+        "native-provenance",
+        "native-logger"
+      ],
+      "contract": null,
+      "contract_revision": null,
+      "task": "work/tasks/native-root-bootstrap.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "root/",
+        "work/handoffs/native-root-bootstrap.md"
+      ],
+      "read_only_paths": [
+        "pkg/id/",
+        "pkg/provenance/",
+        "pkg/logger/"
+      ],
+      "checks": [
+        "go test -race -count=1 ./pkg/... ./root",
+        "go vet ./...",
+        "go build -o /tmp/atelier-wails-bootstrap-check .",
+        "gofmt -l pkg root"
+      ]
+    },
+    {
+      "id": "workspace-contract",
+      "state": "complete",
+      "depends_on": [],
+      "contract": "internal/workspace/CONTRACT.md",
+      "contract_revision": 1,
+      "task": "work/tasks/workspace-contract.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "internal/workspace/CONTRACT.md",
+        "work/handoffs/workspace-contract.md"
+      ],
+      "read_only_paths": [],
+      "checks": [
+        "python3 tools/work/verify_manifest.py"
+      ]
+    },
+    {
+      "id": "jobs-contract",
+      "state": "complete",
+      "depends_on": [],
+      "contract": "internal/jobs/CONTRACT.md",
+      "contract_revision": 1,
+      "task": "work/tasks/jobs-contract.md",
+      "owner": "coordinator",
+      "allowed_paths": [
+        "internal/jobs/CONTRACT.md",
+        "work/handoffs/jobs-contract.md"
+      ],
+      "read_only_paths": [],
+      "checks": [
+        "python3 tools/work/verify_manifest.py"
+      ]
+    }
+  ]
+}

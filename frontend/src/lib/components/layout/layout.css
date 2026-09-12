@@ -1,0 +1,14 @@
+@layer primitive {
+	.atelier-resizable { display: grid; min-inline-size: 0; min-block-size: 0; overflow: hidden; }
+	.atelier-resizable[data-direction='horizontal'] { grid-template-columns: minmax(0, var(--split-size)) var(--space-2) minmax(0, 1fr); }
+	.atelier-resizable[data-direction='vertical'] { grid-template-rows: minmax(0, var(--split-size)) var(--space-2) minmax(0, 1fr); }
+	.atelier-resizable__pane { min-inline-size: 0; min-block-size: 0; overflow: auto; }
+	.atelier-resizable__handle { position: relative; z-index: 1; display: grid; place-items: center; padding: 0; border: 0; background: var(--surface-sunk); cursor: col-resize; touch-action: none; }
+	.atelier-resizable[data-direction='vertical'] .atelier-resizable__handle { cursor: row-resize; }
+	.atelier-resizable__handle::before { content: ''; position: absolute; inset: 0; background: transparent; transition: background var(--motion-fast) var(--ease-standard); }
+	.atelier-resizable__handle span { position: relative; z-index: 1; display: block; border-radius: var(--radius-pill); background: var(--line-heavy); }
+	.atelier-resizable[data-direction='horizontal'] .atelier-resizable__handle span { inline-size: 2px; block-size: 28px; }
+	.atelier-resizable[data-direction='vertical'] .atelier-resizable__handle span { inline-size: 28px; block-size: 2px; }
+	.atelier-resizable__handle:hover::before, .atelier-resizable__handle:focus-visible::before { background: var(--accent-tint); }
+	.atelier-resizable__handle:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: -2px; }
+}

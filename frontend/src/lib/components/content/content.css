@@ -1,0 +1,32 @@
+@layer primitive {
+	.atelier-tag { --tag-color: var(--ink-muted); --tag-tint: var(--surface-hover); display: inline-flex; align-items: center; gap: var(--space-2); min-inline-size: 0; border-radius: var(--radius-pill); color: var(--tag-color); font-weight: var(--weight-medium); line-height: 1; white-space: nowrap; }
+	.atelier-tag[data-tone='accent'] { --tag-color: var(--accent); --tag-tint: var(--accent-tint); }
+	.atelier-tag[data-tone='success'] { --tag-color: var(--success); --tag-tint: var(--success-tint); }
+	.atelier-tag[data-tone='warning'] { --tag-color: var(--warning); --tag-tint: var(--warning-tint); }
+	.atelier-tag[data-tone='danger'] { --tag-color: var(--danger); --tag-tint: var(--danger-tint); }
+	.atelier-tag[data-size='sm'] { min-block-size: var(--control-xs); padding-inline: var(--space-3); font-size: var(--text-10); }
+	.atelier-tag[data-size='md'] { min-block-size: var(--control-sm); padding-inline: var(--space-4); font-size: var(--text-11); }
+	.atelier-tag[data-variant='soft'] { background: var(--tag-tint); }
+	.atelier-tag[data-variant='solid'] { background: var(--tag-color); color: var(--accent-ink); }
+	.atelier-tag[data-variant='outline'] { border: 1px solid color-mix(in srgb, var(--tag-color) 52%, transparent); }
+	.atelier-tag__dot { inline-size: 6px; block-size: 6px; flex: 0 0 auto; border-radius: var(--radius-pill); background: currentColor; }
+	.atelier-tag__label { overflow: hidden; text-overflow: ellipsis; }
+	.atelier-tag__remove { inline-size: 16px; block-size: 16px; display: grid; place-items: center; margin-inline-start: var(--space-1); border: 0; border-radius: var(--radius-pill); background: transparent; color: currentColor; font-size: var(--text-13); line-height: 1; }
+	.atelier-tag__remove:hover { background: color-mix(in srgb, currentColor 15%, transparent); }
+	.atelier-avatar { position: relative; inline-size: var(--avatar-size); block-size: var(--avatar-size); display: inline-grid; place-items: center; flex: 0 0 auto; border: 1px solid var(--line-strong); border-radius: 50%; background: var(--accent-tint); color: var(--accent); font-size: var(--text-11); font-weight: var(--weight-semibold); }
+	.atelier-avatar[data-size='sm'] { --avatar-size: 24px; font-size: var(--text-10); }
+	.atelier-avatar[data-size='md'] { --avatar-size: 32px; }
+	.atelier-avatar[data-size='lg'] { --avatar-size: 42px; font-size: var(--text-13); }
+	.atelier-avatar img { inline-size: 100%; block-size: 100%; border-radius: inherit; object-fit: cover; }
+	.atelier-avatar__status { position: absolute; inset-block-end: -1px; inset-inline-end: -1px; inline-size: 9px; block-size: 9px; border: 2px solid var(--surface-panel); border-radius: 50%; background: var(--ink-subtle); }
+	.atelier-avatar[data-status='online'] .atelier-avatar__status { background: var(--success); }
+	.atelier-avatar[data-status='away'] .atelier-avatar__status { background: var(--warning); }
+	.atelier-avatar[data-status='busy'] .atelier-avatar__status { background: var(--danger); }
+	.atelier-code-block { display: grid; min-inline-size: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-2); background: var(--surface-sunk); }
+	.atelier-code-block__header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-block-size: var(--control-md); padding-inline: var(--space-4); border-block-end: 1px solid var(--line); color: var(--ink-subtle); font-family: var(--font-mono); font-size: var(--text-10); }
+	.atelier-code-block pre { min-inline-size: 0; overflow: auto; margin: 0; padding: var(--space-6); color: var(--ink); font-family: var(--font-mono); font-size: var(--text-11); line-height: var(--leading-body); tab-size: 2; }
+	.atelier-copy-button { display: inline-flex; align-items: center; gap: var(--space-2); min-block-size: var(--control-sm); padding-inline: var(--space-3); border: 1px solid transparent; border-radius: var(--radius-1); background: transparent; color: var(--ink-muted); font-size: var(--text-10); }
+	.atelier-copy-button:hover { border-color: var(--line); background: var(--surface-hover); color: var(--ink); }
+	.atelier-copy-button span { font-size: var(--text-12); }
+	.atelier-inline-code { padding: 2px var(--space-2); border: 1px solid var(--line); border-radius: var(--radius-1); background: var(--surface-sunk); color: var(--accent); font-family: var(--font-mono); font-size: 0.9em; }
+}

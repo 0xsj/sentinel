@@ -1,0 +1,1 @@
+@layer primitive { .atelier-kbd { display: inline-flex; align-items: center; min-block-size: var(--control-xs); padding-inline: var(--space-3); border: 1px solid var(--line-strong); border-radius: var(--radius-1); background: var(--surface-sunk); color: var(--ink-muted); font-family: var(--font-mono); font-size: var(--text-10); line-height: 1; white-space: nowrap; } }

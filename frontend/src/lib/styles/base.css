@@ -1,0 +1,21 @@
+@layer base {
+  body {
+    min-height: 100%;
+    overflow: hidden;
+    background: var(--surface-ground);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-13);
+    line-height: var(--leading-snug);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  #app {
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: var(--accent-tint);
+  }
+}
